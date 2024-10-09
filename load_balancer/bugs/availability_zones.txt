@@ -1,0 +1,25 @@
+aws ec2 describe-instances --instance-ids i-09f5d6e331852664b i-0e6b843afa9fdc4f9 i-0f64f0c7003a051dc --query "Reservations[*].Instances[*].Placement.AvailabilityZone" --output text
+
+Devuelve:
+us-east-1d
+us-east-1d
+us-east-1d
+
+
+aws elb describe-load-balancers --load-balancer-name app-lb --query "LoadBalancerDescriptions[0].AvailabilityZones" --output text
+
+Devuelve:
+us-east-1a      us-east-1b
+
+
+aws elb enable-availability-zones-for-load-balancer --load-balancer-name app-lb --availability-zones us-east-1d
+
+Devuelve:
+{
+    "AvailabilityZones": [
+        "us-east-1a",
+        "us-east-1b",
+        "us-east-1d"
+    ]
+}
+
