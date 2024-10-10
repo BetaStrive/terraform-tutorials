@@ -1,1 +1,0 @@
-aws dynamodb put-item --table-name example-table --item '{"ID": {"S": "item1"}, "Value": {"S": "Este es un valor de ejemplo"}}' --region us-east-1
